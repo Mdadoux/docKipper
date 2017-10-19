@@ -38,4 +38,20 @@
       });
   }
 
+$(window).scroll(function(){
+    if($(this).scrollTop()>100){
+      //console.log($(window).scrollTop())
+     $("#scrollToTop").fadeIn();
+    }else{
+     $("#scrollToTop").fadeOut();
+    }
+})
+
+$("#scrollToTop").click(function(e){
+  e.preventDefault();
+  $("html,body").animate({scrollTop:0},600);
+});
+
+
+
 })(jQuery); // End of use strict

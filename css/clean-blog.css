@@ -118,7 +118,8 @@ body {
       -ms-transform: translate3d(0, 0, 0);
       -o-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
-      -webkit-backface-visibility: hidden; }
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden; }
       #mainNav.is-fixed {
         /* when the user scrolls down, we hide the header right above the viewport */
         position: fixed;
@@ -156,13 +157,13 @@ header.masthead {
   header.masthead .page-heading,
   header.masthead .post-heading,
   header.masthead .site-heading {
-    padding: 200px 0 150px;
+    padding: 20px;
     color: white; }
     @media only screen and (min-width: 768px) {
       header.masthead .page-heading,
       header.masthead .post-heading,
       header.masthead .site-heading {
-        padding: 200px 0; } }
+        padding: 20px; } }
   header.masthead .page-heading,
   header.masthead .site-heading {
     text-align: center; }
@@ -181,7 +182,7 @@ header.masthead {
     @media only screen and (min-width: 768px) {
       header.masthead .page-heading h1,
       header.masthead .site-heading h1 {
-        font-size: 80px; } }
+        font-size: 50px; } }
   header.masthead .post-heading h1 {
     font-size: 35px; }
   header.masthead .post-heading .meta,
@@ -269,8 +270,7 @@ header.masthead {
     -moz-transition: top 0.3s ease, opacity 0.3s ease;
     -ms-transition: top 0.3s ease, opacity 0.3s ease;
     transition: top 0.3s ease, opacity 0.3s ease;
-    vertical-align: middle;
-    vertical-align: baseline;
+    
     opacity: 0; }
   .floating-label-form-group .help-block {
     margin: 15px 0; }
@@ -372,8 +372,68 @@ footer {
   font-weight: normal;
   font-size: 1em;
 }
-#page_heading{
+.page_heading{
   border-bottom: 1px solid #eeeeee;
   padding-bottom: 20px;
   font-weight: 100;
 } 
+
+.btn-addDoc:hover{
+  text-decoration: none;
+}
+
+.btn-addDoc {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    line-height: 50px;
+    padding: 0;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+#addArea{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  top: 0; 
+  background: #fff;
+  z-index: 100;
+  padding: 200px 30px;
+}
+
+#close{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 115;
+}
+
+.modal .page_heading{
+  border: none;
+  padding-bottom:0px;
+}
+
+.messagesAlert{
+  text-align: center;
+  margin: 5px;
+}
+
+#scrollToTop{
+  position: fixed;
+  top: 30%;
+  right: 10px;
+  background: #282828;
+  color: white;
+  display: block;
+  padding: 20px;
+  line-height: 20px;
+}
