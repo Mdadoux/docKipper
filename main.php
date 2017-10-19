@@ -1,6 +1,11 @@
 <?php
+
+class Main  
+{
+  
 // lister les documents issu dans un dossier 
-  function lisFilesFromFolder($folder){
+  public function lisFilesFromFolder($folder)
+  {
     if(is_dir($folder)){
       if($dh= opendir($folder)){     
         while($file = readdir($dh)){
@@ -8,25 +13,25 @@
             <div class="media doc_items">
                 <div class="media-left media-middle">
                 <a href="#">
-                  <img class="media-object" src="img/file_icons/<?php	echo(getextension($file)) ;?>" width="100" alt="...">
+                  <img class="media-object" src="img/file_icons/<?php echo($this->getextension($file)) ;?>" width="100" alt="...">
                 </a>
-								</div>
+                </div>
                 <div class="media-body">
                   <h4 class="media-heading"><a href="index.php?archive=<?php echo $file;?>"><?php echo $file;?></a> </h4>
                   <p class="post-meta">
                     Posté le : <?php echo date("d/m/Y à H:i:s",filemtime($folder.$file)) ;?> <br><br>
                     <strong>Télechargé (<?php 
                         $explodedFile = explode(".", $file);
-                        echo get_numberHit($explodedFile[0]);
+                        echo $this->get_numberHit($explodedFile[0]);
 
                       ?>) fois</strong>
 
                   </p> 
                   <!--<p>Cras sit amet nibh libero, in gravida nulla.Nulla vel metus.</p>!-->
                 </div>
-            	</div>        
+              </div>        
 
-        <?php	}	
+        <?php } 
           
         }
         closedir($dh);
@@ -37,7 +42,8 @@
   }
 
   //trouver l'image correspondant 
-  function getextension($fileNameExtension){
+  private function getextension($fileNameExtension)
+  {
     $nameFile = explode(".",$fileNameExtension);
     $ext = $nameFile[1];
     //dossier des icones 
@@ -66,7 +72,8 @@
 
 
 // conter le nombre de fichier 
-function countDocs($name) {
+public function countDocs($name)
+ {
     if(is_dir($name)){
 
       if($pathName = opendir($name)){
@@ -86,7 +93,8 @@ function countDocs($name) {
 
 //afficher le nombre de hit
 
-function get_numberHit($name) {
+private function get_numberHit($name)
+ {
         $folder_stat = 'uploaded/stats/'; // répertoire dans lequel seront stockées les statistiques
         $file = $folder_stat.$name.'.txt'; // nom du fichier de statistiques contenant le nombre de hits
         // si le fichier existe
@@ -105,14 +113,15 @@ function get_numberHit($name) {
         }
 }
 
-function is_archive(){
-  // tester si un fichier est demander pour télécharger 
+private function is_archive()
+{
+  // tester si un fichier est demandé pour téléchargement 
   if (isset($_GET["archive"])) {
     $folder_stat = 'uploaded/stats/'; // répertoire dans lequel seront stockées les statistiques
     $folderToArchive = 'uploaded/';
     $theArchive = htmlentities($_GET["archive"],ENT_QUOTES);
     $explodeArchive = explode('.', $theArchive);
-    $file = $folder_stat.$explodeArchive[0].'.txt'; // nom du fichier de statistiques contenant le nombre de hits	
+    $file = $folder_stat.$explodeArchive[0].'.txt'; // nom du fichier de statistiques contenant le nombre de hits 
     if(file_exists($file)){
         $myhandle = fopen($file, "r+");
         $hit = fgets($myhandle);
@@ -120,14 +129,15 @@ function is_archive(){
         $hit = $hit + 1;
         fseek($myhandle,0);
         fwrite($myhandle,$hit);
-        fclose($myhandle);			
+        fclose($myhandle);      
         header("Location:$folderToArchive".$explodeArchive[0].".".$explodeArchive[1]);
 
       }
     }
 }
 
-function is_doc(){
+public function uploadFile()
+{
     if(!empty($_FILES['document'])){
       global $error;
       global $success;
@@ -148,7 +158,7 @@ function is_doc(){
         }
         if ($_FILES["document"]["size"] > 20000000000) {
           $error = "Fichier trop volumineux";
-          $uploadOk = 0;	
+          $uploadOk = 0;  
         } 
         // deplacer le fichier télchargé 
 
@@ -168,4 +178,10 @@ function is_doc(){
     }
 
 }
-?>
+
+
+
+
+
+}
+

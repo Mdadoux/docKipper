@@ -1,7 +1,7 @@
 <?php
   require_once('main.php');
-  is_doc();
-  is_archive();
+  //is_doc();
+  //is_archive();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +44,12 @@
 			<div class="row">
 				<div class="col-lg-8 col-md-10 mx-auto">
 					<div class="post-preview">
-						<h2 class="page_heading">Documents disponibles <span class="text-info"><?php echo countDocs('uploaded/');?></span></h2>
-						<?php  lisFilesFromFolder("uploaded/");?>	
+						<h2 class="page_heading">Documents disponibles <span class="text-info"><?php //echo countDocs('uploaded/');?></span></h2>
+						<?php
+
+						  $listeFichier = new  Main ();
+						  $listeFichier->lisFilesFromFolder("uploaded/");
+						?>	
 						<!-- Pager -->
 						<div class="clearfix">
 						<?php	//<a class="btn btn-secondary float-right" href="#">Older Posts &rarr;</a> ;?>
@@ -79,51 +83,7 @@
 
 		</div>
 
-			<?php /*
-			<div class="control-group">
-
-			<div class="form-group floating-label-form-group controls">
-
-			<label>Nom fichier</label>
-
-			<input type="text" class="form-control" placeholder="Name" id="name">
-
-			<p class="help-block text-danger"></p>
-
-			</div>
-
-			</div>
-
-
-
-			<div class="control-group">
-
-			<div class="form-group floating-label-form-group controls">
-
-			<label>Votre nom ou email</label>
-
-			<input type="email" class="form-control" placeholder="Email Address" id="email">
-
-			<p class="help-block text-danger"></p>
-
-			</div>
-
-			</div>
-
-
-			<div class="control-group">
-
-			<div class="form-group floating-label-form-group controls">
-
-			<label>Brève description</label>
-
-			<textarea rows="5" class="form-control" placeholder="Message" id="message" ></textarea>
-
-
-			</div>
-
-			</div>
-			*/?>
+		
 			<br> 
 
 				<div class="form-group">
