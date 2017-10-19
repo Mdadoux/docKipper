@@ -173,6 +173,7 @@ public function uploadFile()
         if($uploadOk==1){
           if(move_uploaded_file($documentTempRep,$pathToUpload.$documentName)){
             $success = "Fichier téléchargé avec succès";
+           // header( "refresh:5;url=index.php" ); 
           }else{
             $error = $_FILES['document']['error'];
             

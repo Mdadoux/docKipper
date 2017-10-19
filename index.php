@@ -8,7 +8,7 @@ require_once('class/main.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>Formation sogeti</title>
+	<title>Doc Kipper</title>
 	<!-- Bootstrap core CSS -->
 	<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom fonts for this template -->
@@ -26,7 +26,7 @@ require_once('class/main.php');
 		<div class="row">
 				<div class="col-lg-8 col-md-10 mx-auto">
 					<div class="site-heading">
-						<h1>Espace Doc</h1>
+						<h1>DOc kipper</h1>
 						<span class="subheading">Platforme de partage de fichiers</span>
 					</div>
 				</div>
@@ -79,37 +79,43 @@ require_once('class/main.php');
 
 	<?php if(isset($_GET['section'])) : ?>
 
-	<section id="addArea">
-		<a href="index.php" id="close">Acceuil</a>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-md-10 mx-auto">
-				<div class="post-preview">
-				<h2 class="page_heading">Télecharger un document </h2>
-				<form enctype="multipart/form-data" method="POST" action="">
-					<div class="messagesAlert">
-						<?php 
-						// afficher ereur 	
-						if(isset($error)){
-						echo "<span class='text-danger'>$error</span>"; 
-						}
-						if(isset($success)){echo "<span class='text-success'>$success</span>"; }
-
-						?>
-
+<section id="addArea">
+		<div id="navAddArea">
+			<a href="index.php" id="close"><i class="fa fa-arrow-left" aria-hidden="true"></i> Acceuil</a>
+			
 		</div>
 
-		
-			<br> 
+		<div id="addAreaWrapper">
+			<div class="container bounceIn">
+				<div class="row">
+					<div class="col-lg-8 col-md-10 mx-auto">
+						<div class="post-preview">
+						<h2 class="page_heading">Télecharger un document </h2>
+						<form enctype="multipart/form-data" method="POST" action="">
+							<div class="messagesAlert">
+								<?php 
+								// afficher ereur 	
+								if(isset($error)){
+								echo "<span class='text-danger'>$error</span>"; 
+								}
+								if(isset($success)){echo "<span class='text-success'>$success</span>"; }
 
-				<div class="form-group">
-					<input type="file" name="document" id="document" >
-				</div>
-				<div class="form-group">
-					<button type="submit" class="btn btn-secondary" id="sendMessageButton">Send</button>
-				</div>
-			</form> <!--!-->
-		</div> <!-- fin du container!-->
+								?>
+
+							</div>
+
+				
+					<br> 
+
+						<div class="form-group">
+							<input type="file" name="document" id="document" >
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-secondary" id="sendMessageButton">Send</button>
+						</div>
+					</form> <!--!-->
+				</div> <!-- fin du container!-->
+		</div>
 </section>
 <?php endif; ?>
 
@@ -117,22 +123,13 @@ require_once('class/main.php');
 <!-- Footer -->
 
 <footer>
-
-		<div class="container">
-
+	<div class="container">
 		<div class="row">
-
-		<div class="col-lg-8 col-md-10 mx-auto">
-
-		
-
-		<p class="copyright text-muted">By dadoux</p>
-
+			<div class="col-lg-8 col-md-10 mx-auto">
+			<p class="copyright text-muted">By dadoux</p>
+			</div>
 		</div>
-
-		</div>
-
-		</div>
+	</div>
 
 </footer>
 
