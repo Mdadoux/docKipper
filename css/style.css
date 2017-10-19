@@ -433,7 +433,7 @@ footer {
   right: 10px;
   background: #282828;
   color: white;
-  display: block;
+  display: none;
   padding: 20px;
   line-height: 20px;
 }

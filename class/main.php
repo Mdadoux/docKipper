@@ -22,7 +22,8 @@ class Main
                     Posté le : <?php echo date("d/m/Y à H:i:s",filemtime($folder.$file)) ;?> <br><br>
                     <strong>Télechargé (<?php 
                         $explodedFile = explode(".", $file);
-                        echo $this->get_numberHit($explodedFile[0]);
+                        // afficher le nombre de téléchargement par défaut à 0
+                        echo ($this->get_numberHit($explodedFile[0]));
 
                       ?>) fois</strong>
 
@@ -69,10 +70,13 @@ class Main
     }
   }
 
+public function getNbDoc($number)
+{
+  return $this->countDocs($number);
+}
 
-
-// conter le nombre de fichier 
-public function countDocs($name)
+// compter le nombre de fichier 
+private function countDocs($name)
  {
     if(is_dir($name)){
 
@@ -113,7 +117,7 @@ private function get_numberHit($name)
         }
 }
 
-private function is_archive()
+public function downLoadFile()
 {
   // tester si un fichier est demandé pour téléchargement 
   if (isset($_GET["archive"])) {
